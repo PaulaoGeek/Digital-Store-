@@ -2,6 +2,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import Header from './components/Header/Header.jsx'
+import Footer from './components/Footer/Footer.jsx'
+
 import HomePage from './pages/HomePage/HomePage.jsx'
 import ProductListingPage from './pages/ProductListingPage/ProductListingPage.jsx'
 import CategoriesPage from './pages/CategoriesPage/CategoriesPage.jsx'
@@ -29,6 +31,8 @@ function App() {
           element={<PagePlaceholder title="Meus pedidos" />}
         />
       </Routes>
+
+      <Footer />
     </BrowserRouter>
   )
 }

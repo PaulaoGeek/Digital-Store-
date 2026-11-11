@@ -1,15 +1,17 @@
+
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import products from '../../data/products'
 import ProductCard from '../../components/ProductCard/ProductCard'
-import { useState } from 'react'
+
 import {
   ChevronLeft,
   ChevronRight,
-  Footprints,
   Shirt,
-  Watch,
-  ShoppingBag,
-  Glasses,
-  Dumbbell
+  Footprints,
+  Headphones,
+  GraduationCap,
+  ArrowRight
 } from 'lucide-react'
 
 import './HomePage.css'
@@ -73,13 +75,12 @@ const slides = [
   }
 ]
 
-const categories = [
-  { name: 'Tênis', icon: Footprints },
-  { name: 'Roupas', icon: Shirt },
-  { name: 'Acessórios', icon: Watch },
-  { name: 'Bolsas', icon: ShoppingBag },
-  { name: 'Óculos', icon: Glasses },
-  { name: 'Esportivo', icon: Dumbbell }
+const collections = [
+  { name: 'Camisetas', icon: Shirt },
+  { name: 'Calças', icon: GraduationCap },
+  { name: 'Bonés', icon: GraduationCap },
+  { name: 'Headphones', icon: Headphones },
+  { name: 'Tênis', icon: Footprints }
 ]
 
 function HomePage() {
@@ -90,70 +91,33 @@ function HomePage() {
   }
 
   const previousSlide = () => {
-    setCurrentSlide((current) => (current - 1 + slides.length) % slides.length)
+    setCurrentSlide((current) =>
+      (current - 1 + slides.length) % slides.length
+    )
   }
 
   const slide = slides[currentSlide]
 
   return (
     <main>
-
-      {/* CATEGORIAS */}
-      <section className="categories-section container">
-
-        <div className="categories-header">
-          <h2>Compre por categoria</h2>
-          <p>Encontre exatamente o que procura.</p>
-        </div>
-
-        <div className="categories-grid">
-          {categories.map((category) => {
-            const Icon = category.icon
-
-            return (
-              <a
-                href="/produtos"
-                className="category-card"
-                key={category.name}
-              >
-                <div className="category-icon">
-                  <Icon size={32} />
-                </div>
-
-                <h3>{category.name}</h3>
-              </a>
-            )
-          })}
-        </div>
-
-      </section>
-
       {/* BANNER PRINCIPAL */}
       <section className="hero">
-
         <div className="hero-content container">
-
           <div className="hero-text" key={currentSlide}>
-            <span className="hero-label">
-              {slide.label}
-            </span>
+            <span className="hero-label">{slide.label}</span>
 
             <h1>{slide.title}</h1>
 
             <p>{slide.description}</p>
 
-            <button className="hero-button">
+            <Link to="/produtos" className="hero-button">
               {slide.button}
-            </button>
+            </Link>
           </div>
 
           <div className="hero-image" key={`image-${currentSlide}`}>
-            <img
-              src={slide.image}
-              alt={slide.title}
-            />
+            <img src={slide.image} alt={slide.title} />
           </div>
-
         </div>
 
         <button
@@ -182,87 +146,77 @@ function HomePage() {
             />
           ))}
         </div>
-
       </section>
 
       {/* COLEÇÕES EM DESTAQUE */}
-      <section className="featured-collections container">
+      <section className="collections-highlight container">
+        <h2>Coleções em destaque</h2>
 
-        <div className="collections-header">
-          <h2>Coleções em destaque</h2>
-          <p>Encontre o estilo que combina com você.</p>
+        <div className="collections-highlight-list">
+          {collections.map((collection) => {
+            const Icon = collection.icon
+
+            return (
+              <Link
+                to="/produtos"
+                className="highlight-collection"
+                key={collection.name}
+              >
+                <span className="highlight-collection-icon">
+                  <Icon size={27} strokeWidth={1.5} />
+                </span>
+
+                <span className="highlight-collection-name">
+                  {collection.name}
+                </span>
+              </Link>
+            )
+          })}
         </div>
-
-        <div className="collections-grid">
-
-          <article className="collection-card">
-            <img
-              src="/collection-1.png"
-              alt="Coleção de produtos em destaque"
-            />
-
-            <div className="collection-info">
-              <span>COLEÇÃO ESPECIAL</span>
-              <h3>Novidades</h3>
-              <a href="/produtos">Explorar coleção</a>
-            </div>
-          </article>
-
-          <article className="collection-card">
-            <img
-              src="/collection-2.png"
-              alt="Coleção de estilo esportivo"
-            />
-
-            <div className="collection-info">
-              <span>SELEÇÃO EXCLUSIVA</span>
-              <h3>Estilo esportivo</h3>
-              <a href="/produtos">Explorar coleção</a>
-            </div>
-          </article>
-
-          <article className="collection-card">
-            <img
-              src="/collection-3.png"
-              alt="Coleção de produtos mais vendidos"
-            />
-
-            <div className="collection-info">
-              <span>ESCOLHAS PARA VOCÊ</span>
-              <h3>Mais vendidos</h3>
-              <a href="/produtos">Explorar coleção</a>
-            </div>
-          </article>
-
-        </div>
-
       </section>
 
       {/* PRODUTOS EM ALTA */}
       <section className="trending-section container">
-
         <div className="trending-header">
-          <div>
-            <h2>Produtos em alta</h2>
-            <p>Os favoritos dos nossos clientes.</p>
-          </div>
+          <h2>Produtos em alta</h2>
 
-          <a href="/produtos" className="see-all-products">
+          <Link to="/produtos" className="see-all-products">
             Ver todos
-          </a>
+            <ArrowRight size={17} />
+          </Link>
         </div>
 
         <div className="trending-grid">
-          {products.map((product) => (
+          {products.slice(0, 8).map((product) => (
             <ProductCard
               key={product.id}
               product={product}
             />
           ))}
         </div>
-
       </section>
 
+      {/* DESTAQUE ESPECIAL */}
+      <section className="jordan-highlight">
+        <div className="jordan-highlight-content container">
+          <div className="jordan-highlight-image">
+            <img
+              src="/produc-image-4.jpeg"
+              alt="Tênis em destaque"
+            />
+          </div>
+
+          <div className="jordan-highlight-text">
+            <span>OFERTA ESPECIAL</span>
+            <h2>Estilo e personalidade em cada passo</h2>
+            <p>
+              Descubra nossa seleção especial de produtos
+              e encontre o modelo ideal para você.
+            </p>
+            <Link to="/produtos">Ver ofertas</Link>
+          </div>
+        </div>
+      </section>
     </main>
   )
 }
