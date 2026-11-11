@@ -1,0 +1,371 @@
+
+/* ========================================
+   PÁGINA DE LOGIN
+======================================== */
+
+.login-page {
+  width: 100%;
+  min-height: 650px;
+  padding: 65px 20px;
+  background: #f9f8fe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 480px;
+  padding: 42px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 35px rgba(0, 0, 0, 0.06);
+}
+
+/* ========================================
+   CABEÇALHO
+======================================== */
+
+.login-heading {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.login-tag {
+  display: inline-block;
+  color: #c92071;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.login-heading h1 {
+  color: #1f1f1f;
+  font-size: 28px;
+  margin: 0 0 10px;
+}
+
+.login-heading p {
+  color: #666666;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ========================================
+   FORMULÁRIO
+======================================== */
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.login-field label {
+  color: #333333;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.login-field input {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #1f1f1f;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.login-field input:focus {
+  border-color: #c92071;
+  box-shadow: 0 0 0 3px rgba(201, 32, 113, 0.08);
+}
+
+.login-field input::placeholder {
+  color: #999999;
+}
+
+/* ========================================
+   MOSTRAR / OCULTAR SENHA
+======================================== */
+
+.login-password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.login-password-wrapper input {
+  padding-right: 85px;
+}
+
+.login-show-password {
+  position: absolute;
+  right: 12px;
+  border: none;
+  background: transparent;
+  color: #666666;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.login-show-password:hover {
+  color: #c92071;
+}
+
+/* ========================================
+   OPÇÕES DO LOGIN
+======================================== */
+
+.login-options {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -8px;
+}
+
+.login-options a {
+  color: #666666;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.login-options a:hover {
+  color: #c92071;
+}
+
+/* ========================================
+   MENSAGENS
+======================================== */
+
+.login-feedback {
+  padding: 12px 14px;
+  border: 1px solid #f0c6c6;
+  border-radius: 8px;
+  background: #fff4f4;
+  color: #b42318;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ========================================
+   BOTÃO ENTRAR
+======================================== */
+
+.login-submit {
+  width: 100%;
+  height: 49px;
+  border: none;
+  border-radius: 8px;
+  background: #c92071;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.login-submit:hover {
+  background: #991956;
+  transform: translateY(-1px);
+}
+
+.login-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ========================================
+   LINK PARA CADASTRO
+======================================== */
+
+.login-register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 25px;
+  color: #777777;
+  font-size: 13px;
+}
+
+.login-register a {
+  color: #555555;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.login-register a:hover {
+  color: #c92071;
+}
+
+/* ========================================
+   JANELA DE SUCESSO
+======================================== */
+
+.login-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(20, 20, 20, 0.58);
+  backdrop-filter: blur(5px);
+  animation: loginOverlay 0.25s ease;
+}
+
+.login-success-modal {
+  width: 100%;
+  max-width: 420px;
+  padding: 38px 32px 30px;
+  border-radius: 18px;
+  background: #ffffff;
+  text-align: center;
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.2);
+  animation: loginModal 0.35s ease;
+}
+
+/* Ícone */
+
+.login-success-icon {
+  width: 66px;
+  height: 66px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #e8f7ee;
+  color: #219653;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+/* Título */
+
+.login-success-modal h2 {
+  margin: 0 0 12px;
+  color: #1f1f1f;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+/* Mensagens */
+
+.login-success-modal p {
+  margin: 7px 0;
+  color: #666666;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Redirecionamento */
+
+.login-redirect-message {
+  margin-top: 24px;
+  color: #777777;
+  font-size: 12px;
+}
+
+/* Barra de progresso */
+
+.login-loading-bar {
+  width: 100%;
+  height: 5px;
+  margin-top: 16px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #eeeeee;
+}
+
+.login-loading-bar span {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: 10px;
+  background: #c92071;
+  animation: loginProgress 3s linear forwards;
+}
+
+/* ========================================
+   ANIMAÇÕES
+======================================== */
+
+@keyframes loginOverlay {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes loginModal {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes loginProgress {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 550px) {
+  .login-page {
+    min-height: auto;
+    padding: 35px 15px;
+  }
+
+  .login-container {
+    padding: 30px 22px;
+  }
+
+  .login-heading h1 {
+    font-size: 24px;
+  }
+
+  .login-success-modal {
+    padding: 32px 22px 25px;
+  }
+
+  .login-success-modal h2 {
+    font-size: 22px;
+  }
+}

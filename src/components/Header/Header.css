@@ -1,7 +1,13 @@
 
+/* ========================================
+   CABEÇALHO PRINCIPAL
+======================================== */
+
 .header {
-  background: var(--white);
+  position: relative;
+  z-index: 100;
   width: 100%;
+  background: var(--white);
 }
 
 .header-top {
@@ -11,6 +17,10 @@
   justify-content: space-between;
   gap: 30px;
 }
+
+/* ========================================
+   LOGO
+======================================== */
 
 .header-logo {
   display: flex;
@@ -33,6 +43,10 @@
   border-radius: 10px;
 }
 
+/* ========================================
+   CAMPO DE PESQUISA
+======================================== */
+
 .header-search {
   flex: 1;
   max-width: 550px;
@@ -46,6 +60,7 @@
 
 .header-search input {
   flex: 1;
+  min-width: 0;
   height: 100%;
   padding: 0 16px;
   border: none;
@@ -60,7 +75,12 @@
   border: none;
   background: transparent;
   color: var(--dark-3);
+  cursor: pointer;
 }
+
+/* ========================================
+   AÇÕES DO CABEÇALHO
+======================================== */
 
 .header-actions {
   display: flex;
@@ -83,14 +103,179 @@
   color: white;
   border-radius: 8px;
   font-weight: 600;
+  transition: background 0.2s;
 }
+
+.login-button:hover {
+  background: var(--tertiary);
+}
+
+/* ========================================
+   USUÁRIO CONECTADO
+======================================== */
+
+.account-menu {
+  position: relative;
+}
+
+.account-trigger {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--dark);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.account-trigger:hover {
+  background: var(--light-3);
+}
+
+.account-user-icon {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #fceaf2;
+  color: var(--primary);
+}
+
+.account-greeting {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  font-size: 12px;
+  color: var(--dark-3);
+}
+
+.account-greeting strong {
+  max-width: 130px;
+  overflow: hidden;
+  color: var(--dark);
+  font-size: 14px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+}
+
+.account-chevron {
+  color: var(--dark-3);
+  transition: transform 0.2s;
+}
+
+.account-chevron.open {
+  transform: rotate(180deg);
+}
+
+/* ========================================
+   MENU MINHA CONTA
+======================================== */
+
+.account-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  z-index: 200;
+  width: 250px;
+  padding: 9px;
+  border: 1px solid #eeeeee;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.13);
+  animation: accountDropdown 0.2s ease;
+}
+
+.account-dropdown a,
+.account-logout {
+  width: 100%;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--dark-2);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.account-dropdown a svg,
+.account-logout svg {
+  flex-shrink: 0;
+  color: var(--dark-3);
+}
+
+.account-dropdown a:hover {
+  background: #f9f0f4;
+  color: var(--primary);
+}
+
+.account-dropdown a:hover svg {
+  color: var(--primary);
+}
+
+.account-dropdown-divider {
+  height: 1px;
+  margin: 7px 4px;
+  background: #eeeeee;
+}
+
+.account-logout {
+  color: #c92071;
+  font-weight: 600;
+}
+
+.account-logout svg {
+  color: #c92071;
+}
+
+.account-logout:hover {
+  background: #fff0f5;
+}
+
+@keyframes accountDropdown {
+  from {
+    opacity: 0;
+    transform: translateY(-7px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   CARRINHO
+======================================== */
 
 .cart-button {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   background: transparent;
   color: var(--primary);
+  cursor: pointer;
 }
+
+/* ========================================
+   NAVEGAÇÃO
+======================================== */
 
 .header-nav {
   display: flex;
@@ -100,15 +285,24 @@
 }
 
 .header-nav a {
+  padding-bottom: 8px;
   color: var(--dark-2);
   font-weight: 500;
-  padding-bottom: 8px;
+  transition: color 0.2s ease;
+}
+
+.header-nav a:hover {
+  color: var(--primary);
 }
 
 .header-nav a.active {
   color: var(--primary);
   border-bottom: 2px solid var(--primary);
 }
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
 
 @media (max-width: 850px) {
   .header-top {
@@ -132,6 +326,7 @@
     overflow-x: auto;
   }
 }
+
 @media (max-width: 500px) {
   .header-logo {
     font-size: 21px;
@@ -145,20 +340,27 @@
     padding: 10px;
   }
 
+  .account-trigger {
+    gap: 5px;
+    padding: 5px;
+  }
+
+  .account-user-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .account-greeting strong {
+    max-width: 85px;
+    font-size: 12px;
+  }
+
+  .account-dropdown {
+    width: 235px;
+  }
+
   .header-nav {
     gap: 18px;
     font-size: 13px;
   }
-  
-/* NAVEGAÇÃO COM REACT ROUTER */
-
-.header-nav a {
-  transition: color 0.2s ease;
-}
-
-.header-nav a.active {
-  color: var(--primary);
-  border-bottom: 2px solid var(--primary);
-}
-
 }
