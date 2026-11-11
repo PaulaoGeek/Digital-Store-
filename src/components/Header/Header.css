@@ -1,0 +1,164 @@
+
+.header {
+  background: var(--white);
+  width: 100%;
+}
+
+.header-top {
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--primary);
+  font-size: 28px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.logo-symbol {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+  color: white;
+  border-radius: 10px;
+}
+
+.header-search {
+  flex: 1;
+  max-width: 550px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  background: var(--light-3);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.header-search input {
+  flex: 1;
+  height: 100%;
+  padding: 0 16px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--dark);
+}
+
+.header-search button {
+  height: 100%;
+  padding: 0 15px;
+  border: none;
+  background: transparent;
+  color: var(--dark-3);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.register-link {
+  color: var(--dark-2);
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+.login-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 22px;
+  background: var(--primary);
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.cart-button {
+  position: relative;
+  border: none;
+  background: transparent;
+  color: var(--primary);
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  min-height: 55px;
+}
+
+.header-nav a {
+  color: var(--dark-2);
+  font-weight: 500;
+  padding-bottom: 8px;
+}
+
+.header-nav a.active {
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+}
+
+@media (max-width: 850px) {
+  .header-top {
+    flex-wrap: wrap;
+    padding-top: 20px;
+    padding-bottom: 15px;
+  }
+
+  .header-search {
+    order: 3;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+
+  .header-actions {
+    gap: 12px;
+  }
+
+  .header-nav {
+    gap: 20px;
+    overflow-x: auto;
+  }
+}
+@media (max-width: 500px) {
+  .header-logo {
+    font-size: 21px;
+  }
+
+  .register-link {
+    display: none;
+  }
+
+  .login-button {
+    padding: 10px;
+  }
+
+  .header-nav {
+    gap: 18px;
+    font-size: 13px;
+  }
+  
+/* NAVEGAÇÃO COM REACT ROUTER */
+
+.header-nav a {
+  transition: color 0.2s ease;
+}
+
+.header-nav a.active {
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+}
+
+}

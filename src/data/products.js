@@ -1,0 +1,173 @@
+
+const products = [
+  {
+    id: 1,
+    name: 'Tênis Nike Revolution 6',
+    brand: 'Nike',
+    category: 'Tênis',
+    gender: 'Masculino',
+    condition: 'Novo',
+    price: 299.90,
+    priceDiscount: 239.90,
+    image: '/produc-image-1.jpeg',
+    discount: '20% OFF'
+  },
+  {
+    id: 2,
+    name: 'Tênis Adidas Esportivo',
+    brand: 'Adidas',
+    category: 'Tênis',
+    gender: 'Unissex',
+    condition: 'Novo',
+    price: 349.90,
+    priceDiscount: 279.90,
+    image: '/produc-image-2.jpeg',
+    discount: '20% OFF'
+  },
+  {
+    id: 3,
+    name: 'Tênis Casual Moderno',
+    brand: 'Puma',
+    category: 'Tênis',
+    gender: 'Feminino',
+    condition: 'Novo',
+    price: 259.90,
+    priceDiscount: 219.90,
+    image: '/produc-image-3.jpeg',
+    discount: '15% OFF'
+  },
+  {
+    id: 4,
+    name: 'Tênis Performance Running',
+    brand: 'Nike',
+    category: 'Tênis',
+    gender: 'Masculino',
+    condition: 'Novo',
+    price: 399.90,
+    priceDiscount: 319.90,
+    image: '/produc-image-4.jpeg',
+    discount: '20% OFF'
+  },
+  {
+    id: 5,
+    name: 'Camiseta Básica Premium',
+    brand: 'Nike',
+    category: 'Camisetas',
+    gender: 'Masculino',
+    condition: 'Novo',
+    price: 89.90,
+    priceDiscount: 69.90,
+    image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600',
+    discount: '22% OFF'
+  },
+  {
+    id: 6,
+    name: 'Camiseta Streetwear',
+    brand: 'Adidas',
+    category: 'Camisetas',
+    gender: 'Unissex',
+    condition: 'Novo',
+    price: 119.90,
+    priceDiscount: 89.90,
+    image: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600',
+    discount: '25% OFF'
+  },
+  {
+    id: 7,
+    name: 'Camiseta Casual',
+    brand: 'Puma',
+    category: 'Camisetas',
+    gender: 'Feminino',
+    condition: 'Novo',
+    price: 99.90,
+    priceDiscount: 79.90,
+    image: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=600',
+    discount: '20% OFF'
+  },
+  {
+    id: 8,
+    name: 'Calça Jeans Slim',
+    brand: 'K-Swiss',
+    category: 'Calças',
+    gender: 'Masculino',
+    condition: 'Novo',
+    price: 199.90,
+    priceDiscount: 159.90,
+    image: 'https://images.unsplash.com/photo-1542272604-787c3835535d?w=600',
+    discount: '20% OFF'
+  },
+  {
+    id: 9,
+    name: 'Calça Jogger Casual',
+    brand: 'Nike',
+    category: 'Calças',
+    gender: 'Unissex',
+    condition: 'Usado',
+    price: 169.90,
+    priceDiscount: 139.90,
+    image: 'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=600',
+    discount: '17% OFF'
+  },
+  {
+    id: 10,
+    name: 'Jaqueta Jeans Moderna',
+    brand: 'Adidas',
+    category: 'Jaquetas',
+    gender: 'Feminino',
+    condition: 'Novo',
+    price: 249.90,
+    priceDiscount: 199.90,
+    image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600',
+    discount: '20% OFF'
+  },
+  {
+    id: 11,
+    name: 'Jaqueta Casual Street',
+    brand: 'Puma',
+    category: 'Jaquetas',
+    gender: 'Masculino',
+    condition: 'Novo',
+    price: 289.90,
+    priceDiscount: 229.90,
+    image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600',
+    discount: '21% OFF'
+  },
+  {
+    id: 12,
+    name: 'Bermuda Casual',
+    brand: 'Nike',
+    category: 'Bermudas',
+    gender: 'Masculino',
+    condition: 'Novo',
+    price: 119.90,
+    priceDiscount: 89.90,
+    image: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=600',
+    discount: '25% OFF'
+  },
+  {
+    id: 13,
+    name: 'Relógio Casual',
+    brand: 'K-Swiss',
+    category: 'Acessórios',
+    gender: 'Unissex',
+    condition: 'Novo',
+    price: 199.90,
+    priceDiscount: 159.90,
+    image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600',
+    discount: '20% OFF'
+  },
+  {
+    id: 14,
+    name: 'Óculos de Sol Moderno',
+    brand: 'Puma',
+    category: 'Acessórios',
+    gender: 'Unissex',
+    condition: 'Usado',
+    price: 149.90,
+    priceDiscount: 119.90,
+    image: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600',
+    discount: '20% OFF'
+  }
+]
+
+export default products
