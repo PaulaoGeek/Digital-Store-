@@ -363,4 +363,33 @@
     gap: 18px;
     font-size: 13px;
   }
+
+/* ÍCONE E CONTADOR DO CARRINHO */
+
+.cart-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.cart-count {
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 19px;
+  height: 19px;
+  padding: 0 5px;
+  border-radius: 50px;
+  background: #c92071;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+}
+
 }

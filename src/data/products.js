@@ -10,7 +10,8 @@ const products = [
     price: 299.90,
     priceDiscount: 239.90,
     image: '/produc-image-1.jpeg',
-    discount: '20% OFF'
+    discount: '20% OFF',
+    sizes: ['38', '39', '40', '41', '42', '43', '44']
   },
   {
     id: 2,
@@ -22,7 +23,8 @@ const products = [
     price: 349.90,
     priceDiscount: 279.90,
     image: '/produc-image-2.jpeg',
-    discount: '20% OFF'
+    discount: '20% OFF',
+    sizes: ['38', '39', '40', '41', '42', '43', '44']
   },
   {
     id: 3,
@@ -34,7 +36,8 @@ const products = [
     price: 259.90,
     priceDiscount: 219.90,
     image: '/produc-image-3.jpeg',
-    discount: '15% OFF'
+    discount: '15% OFF',
+    sizes: ['38', '39', '40', '41', '42', '43', '44']
   },
   {
     id: 4,
@@ -46,7 +49,8 @@ const products = [
     price: 399.90,
     priceDiscount: 319.90,
     image: '/produc-image-4.jpeg',
-    discount: '20% OFF'
+    discount: '20% OFF',
+    sizes: ['38', '39', '40', '41', '42', '43', '44']
   },
   {
     id: 5,
@@ -58,7 +62,8 @@ const products = [
     price: 89.90,
     priceDiscount: 69.90,
     image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600',
-    discount: '22% OFF'
+    discount: '22% OFF',
+    sizes: ['P', 'M', 'G', 'GG']
   },
   {
     id: 6,
@@ -70,7 +75,8 @@ const products = [
     price: 119.90,
     priceDiscount: 89.90,
     image: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600',
-    discount: '25% OFF'
+    discount: '25% OFF',
+    sizes: ['P', 'M', 'G', 'GG']
   },
   {
     id: 7,
@@ -82,7 +88,8 @@ const products = [
     price: 99.90,
     priceDiscount: 79.90,
     image: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=600',
-    discount: '20% OFF'
+    discount: '20% OFF',
+    sizes: ['P', 'M', 'G', 'GG']
   },
   {
     id: 8,
@@ -94,7 +101,8 @@ const products = [
     price: 199.90,
     priceDiscount: 159.90,
     image: 'https://images.unsplash.com/photo-1542272604-787c3835535d?w=600',
-    discount: '20% OFF'
+    discount: '20% OFF',
+    sizes: ['38', '40', '42', '44', '46']
   },
   {
     id: 9,
@@ -106,7 +114,8 @@ const products = [
     price: 169.90,
     priceDiscount: 139.90,
     image: 'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=600',
-    discount: '17% OFF'
+    discount: '17% OFF',
+    sizes: ['38', '40', '42', '44', '46']
   },
   {
     id: 10,
@@ -118,7 +127,8 @@ const products = [
     price: 249.90,
     priceDiscount: 199.90,
     image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600',
-    discount: '20% OFF'
+    discount: '20% OFF',
+    sizes: ['P', 'M', 'G', 'GG']
   },
   {
     id: 11,
@@ -130,7 +140,8 @@ const products = [
     price: 289.90,
     priceDiscount: 229.90,
     image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600',
-    discount: '21% OFF'
+    discount: '21% OFF',
+    sizes: ['P', 'M', 'G', 'GG']
   },
   {
     id: 12,
@@ -142,7 +153,8 @@ const products = [
     price: 119.90,
     priceDiscount: 89.90,
     image: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=600',
-    discount: '25% OFF'
+    discount: '25% OFF',
+    sizes: ['38', '40', '42', '44', '46']
   },
   {
     id: 13,
@@ -154,7 +166,8 @@ const products = [
     price: 199.90,
     priceDiscount: 159.90,
     image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600',
-    discount: '20% OFF'
+    discount: '20% OFF',
+    sizes: []
   },
   {
     id: 14,
@@ -166,7 +179,8 @@ const products = [
     price: 149.90,
     priceDiscount: 119.90,
     image: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600',
-    discount: '20% OFF'
+    discount: '20% OFF',
+    sizes: []
   }
 ]
 

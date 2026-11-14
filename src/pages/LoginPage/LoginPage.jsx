@@ -22,19 +22,48 @@ function LoginPage() {
       return
     }
 
-    // Simulação de usuário conectado no front-end
-    const user = {
-      name: location.state?.name || email.split('@')[0],
-      email: email
+    let accounts = []
+
+    try {
+      accounts = JSON.parse(
+        localStorage.getItem('digitalStoreAccounts') || '[]'
+      )
+
+      if (!Array.isArray(accounts)) {
+        accounts = []
+      }
+    } catch {
+      accounts = []
     }
 
-    // Guarda os dados básicos do usuário para a próxima etapa
-    localStorage.setItem('digitalStoreUser', JSON.stringify(user))
+    const normalizedEmail = email.trim().toLowerCase()
 
-    // Exibe a janela de sucesso
+    const account = accounts.find(
+      item => item.email === normalizedEmail
+    )
+
+    if (!account) {
+      setFeedback('Não encontramos uma conta com esse e-mail.')
+      return
+    }
+
+    if (account.password !== password) {
+      setFeedback('Senha incorreta. Confira e tente novamente.')
+      return
+    }
+
+    const user = {
+      name: account.name,
+      email: account.email
+    }
+
+    localStorage.setItem(
+      'digitalStoreUser',
+      JSON.stringify(user)
+    )
+
     setSuccess(true)
 
-    // Redireciona para a página inicial após 3 segundos
     setTimeout(() => {
       navigate('/')
     }, 3000)
@@ -123,7 +152,6 @@ function LoginPage() {
 
       </div>
 
-      {/* JANELA DE LOGIN REALIZADO */}
       {success && (
         <div className="login-modal-overlay">
           <div

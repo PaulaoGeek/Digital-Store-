@@ -35,13 +35,52 @@ function RegisterPage() {
       return
     }
 
-    // Cadastro validado: exibe a janela de sucesso
+    const normalizedEmail = email.trim().toLowerCase()
+
+    let accounts = []
+
+    try {
+      accounts = JSON.parse(
+        localStorage.getItem('digitalStoreAccounts') || '[]'
+      )
+
+      if (!Array.isArray(accounts)) {
+        accounts = []
+      }
+    } catch {
+      accounts = []
+    }
+
+    const existingAccount = accounts.some(
+      account => account.email === normalizedEmail
+    )
+
+    if (existingAccount) {
+      setFeedback('Este e-mail já possui uma conta cadastrada.')
+      return
+    }
+
+    const newAccount = {
+      name: name.trim(),
+      email: normalizedEmail,
+      password: password
+    }
+
+    accounts.push(newAccount)
+
+    localStorage.setItem(
+      'digitalStoreAccounts',
+      JSON.stringify(accounts)
+    )
+
     setSuccess(true)
 
-    // Após 3 segundos, segue para o login com o e-mail preenchido
     setTimeout(() => {
       navigate('/login', {
-        state: { email, name }
+        state: {
+          email: normalizedEmail,
+          name: name.trim()
+        }
       })
     }, 3000)
   }
@@ -175,7 +214,6 @@ function RegisterPage() {
 
       </div>
 
-      {/* JANELA DE CADASTRO REALIZADO */}
       {success && (
         <div className="register-modal-overlay">
           <div

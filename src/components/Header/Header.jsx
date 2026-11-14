@@ -16,6 +16,8 @@ import {
 
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 
+import { useCart } from '../../context/CartContext'
+
 import './Header.css'
 
 function getStoredUser() {
@@ -31,10 +33,11 @@ function Header() {
   const [user, setUser] = useState(getStoredUser)
   const [menuOpen, setMenuOpen] = useState(false)
 
+  const { cartCount } = useCart()
+
   const location = useLocation()
   const navigate = useNavigate()
 
-  // Atualiza o cabeçalho quando o usuário entra ou muda de página
   useEffect(() => {
     setUser(getStoredUser())
   }, [location.pathname])
@@ -172,12 +175,19 @@ function Header() {
             </div>
           )}
 
-          <button
+          <Link
+            to="/carrinho"
             className="cart-button"
-            aria-label="Carrinho"
+            aria-label={`Carrinho com ${cartCount} itens`}
           >
             <ShoppingCart size={25} />
-          </button>
+
+            {cartCount > 0 && (
+              <span className="cart-count">
+                {cartCount > 99 ? '99+' : cartCount}
+              </span>
+            )}
+          </Link>
 
         </div>
 
