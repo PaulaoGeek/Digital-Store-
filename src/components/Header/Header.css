@@ -49,6 +49,7 @@
 
 .header-search {
   flex: 1;
+  min-width: 0;
   max-width: 550px;
   height: 48px;
   display: flex;
@@ -86,6 +87,7 @@
   display: flex;
   align-items: center;
   gap: 20px;
+  flex-shrink: 0;
 }
 
 .register-link {
@@ -97,6 +99,7 @@
 .login-button {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
   padding: 12px 22px;
   background: var(--primary);
@@ -104,6 +107,7 @@
   border-radius: 8px;
   font-weight: 600;
   transition: background 0.2s;
+  white-space: nowrap;
 }
 
 .login-button:hover {
@@ -144,6 +148,7 @@
   border-radius: 50%;
   background: #fceaf2;
   color: var(--primary);
+  flex-shrink: 0;
 }
 
 .account-greeting {
@@ -156,17 +161,20 @@
 }
 
 .account-greeting strong {
+  display: block;
   max-width: 130px;
   overflow: hidden;
   color: var(--dark);
   font-size: 14px;
   font-weight: 700;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .account-chevron {
   color: var(--dark-3);
   transition: transform 0.2s;
+  flex-shrink: 0;
 }
 
 .account-chevron.open {
@@ -267,10 +275,29 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   border: none;
   background: transparent;
   color: var(--primary);
+  text-decoration: none;
   cursor: pointer;
+}
+
+.cart-count {
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  min-width: 19px;
+  height: 19px;
+  padding: 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  background: #c92071;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
 }
 
 /* ========================================
@@ -288,6 +315,7 @@
   padding-bottom: 8px;
   color: var(--dark-2);
   font-weight: 500;
+  white-space: nowrap;
   transition: color 0.2s ease;
 }
 
@@ -301,14 +329,15 @@
 }
 
 /* ========================================
-   RESPONSIVIDADE
+   NOTEBOOKS E TABLETS
 ======================================== */
 
 @media (max-width: 850px) {
   .header-top {
     flex-wrap: wrap;
-    padding-top: 20px;
+    padding-top: 18px;
     padding-bottom: 15px;
+    gap: 18px;
   }
 
   .header-search {
@@ -318,18 +347,46 @@
   }
 
   .header-actions {
-    gap: 12px;
+    gap: 14px;
   }
 
   .header-nav {
-    gap: 20px;
+    gap: 25px;
     overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+
+  .header-nav::-webkit-scrollbar {
+    display: none;
   }
 }
 
+/* ========================================
+   CELULARES
+======================================== */
+
 @media (max-width: 500px) {
+  .header-top {
+    min-height: auto;
+    padding-top: 15px;
+    padding-bottom: 13px;
+    gap: 14px 8px;
+  }
+
   .header-logo {
-    font-size: 21px;
+    gap: 7px;
+    font-size: 20px;
+  }
+
+  .logo-symbol {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+  }
+
+  .header-actions {
+    gap: 12px;
   }
 
   .register-link {
@@ -337,7 +394,14 @@
   }
 
   .login-button {
-    padding: 10px;
+    gap: 5px;
+    padding: 9px 11px;
+    font-size: 13px;
+  }
+
+  .cart-button svg {
+    width: 23px;
+    height: 23px;
   }
 
   .account-trigger {
@@ -346,50 +410,73 @@
   }
 
   .account-user-icon {
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .account-user-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .account-greeting {
+    font-size: 10px;
   }
 
   .account-greeting strong {
-    max-width: 85px;
-    font-size: 12px;
+    max-width: 75px;
+    font-size: 11px;
+  }
+
+  .account-chevron {
+    width: 14px;
   }
 
   .account-dropdown {
     width: 235px;
+    right: -5px;
+  }
+
+  .header-search {
+    height: 43px;
+  }
+
+  .header-search input {
+    padding: 0 12px;
+    font-size: 13px;
+  }
+
+  .header-nav {
+    min-height: 48px;
+    gap: 22px;
+    padding-bottom: 2px;
+    font-size: 13px;
+  }
+}
+
+/* ========================================
+   CELULARES PEQUENOS
+======================================== */
+
+@media (max-width: 360px) {
+  .header-logo {
+    font-size: 18px;
+  }
+
+  .header-actions {
+    gap: 8px;
+  }
+
+  .login-button {
+    padding: 8px;
+  }
+
+  .account-greeting strong {
+    max-width: 60px;
   }
 
   .header-nav {
     gap: 18px;
-    font-size: 13px;
+    font-size: 12px;
   }
-
-/* ÍCONE E CONTADOR DO CARRINHO */
-
-.cart-button {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.cart-count {
-  position: absolute;
-  top: -9px;
-  right: -9px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 19px;
-  height: 19px;
-  padding: 0 5px;
-  border-radius: 50px;
-  background: #c92071;
-  color: #fff;
-  font-size: 11px;
-  font-weight: 700;
-}
-
 }
